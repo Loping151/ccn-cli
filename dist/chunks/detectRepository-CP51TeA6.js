@@ -1,1 +1,0 @@
-import{a as e,o as t,s as n}from"./detectRepository-CQeq6iqQ.js";e();export{t as parseGitHubRepository,n as parseGitRemote};

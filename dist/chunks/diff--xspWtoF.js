@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{t}from"./jsx-runtime-D-D469L8.js";var n,r;e((()=>{n=t(),r=async(e,t)=>{let{DiffDialog:r}=await import(`./DiffDialog-B_lTYFSM.js`);return(0,n.jsx)(r,{messages:t.messages,onDone:e})}}))();export{r as call};

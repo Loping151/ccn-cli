@@ -1,1 +1,0 @@
-import{la as e,ua as t}from"./paths-BdgeTjAU.js";t();export{e as getOrganizationUUID};

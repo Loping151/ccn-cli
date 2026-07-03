@@ -1,0 +1,1 @@
+import{oi as e,si as t}from"./paths-CSCjbl3W.js";t();export{e as getResolvedLanguage};

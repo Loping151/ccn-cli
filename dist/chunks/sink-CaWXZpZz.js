@@ -1,0 +1,1 @@
+import{r as e,t}from"./sink-Bvu64c2c.js";t();export{e as initializeAnalyticsSink};

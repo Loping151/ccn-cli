@@ -1,0 +1,1 @@
+import{n as e,t}from"./poorMode-sIva_NCJ.js";t();export{e as isPoorModeActive};
