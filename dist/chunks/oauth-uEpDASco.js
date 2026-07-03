@@ -1,0 +1,1 @@
+import{l as e,u as t}from"./oauth-Cbvmj5UR.js";t();export{e as getOauthConfig};

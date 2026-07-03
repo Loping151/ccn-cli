@@ -1,1 +1,0 @@
-import{a as e,i as t}from"./ripgrep-BIfpDnXS.js";e();export{t as getRipgrepStatus};

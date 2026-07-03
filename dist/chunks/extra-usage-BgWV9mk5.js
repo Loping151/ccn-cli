@@ -1,0 +1,1 @@
+import{n as e,t}from"./extra-usage-CHN07okE.js";e();export{t as call};

@@ -1,1 +1,0 @@
-import{r as e}from"./asciicast-DqlciV4a.js";export{e as renameRecordingForSession};

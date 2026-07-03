@@ -1,0 +1,1 @@
+import{i as e,o as t}from"./windowsPaths-nw_UQfI_.js";e();export{t as setShellIfWindows};

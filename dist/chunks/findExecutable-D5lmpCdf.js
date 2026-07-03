@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{r as t,t as n}from"./which-DyYOXWYI.js";function r(e,n){return{cmd:t(e)??e,args:n}}var i=e((()=>{n()}));export{i as n,r as t};

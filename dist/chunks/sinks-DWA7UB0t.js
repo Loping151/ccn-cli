@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-BMaxRpM7.js";export{e as initSinks};
