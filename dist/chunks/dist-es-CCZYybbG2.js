@@ -1,0 +1,1 @@
+import{n as e,t}from"./dist-es-neiUvMJb.js";t();export{e as fromProcess};

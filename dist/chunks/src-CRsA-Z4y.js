@@ -1,0 +1,1 @@
+import{r as e,t}from"./src-BJz1KAd_.js";t();export{e as createClaudeForChromeMcpServer};

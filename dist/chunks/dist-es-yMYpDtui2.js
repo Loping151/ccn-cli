@@ -1,0 +1,1 @@
+import{n as e,t}from"./dist-es-C-1vn4OP2.js";t();export{e as fromIni};

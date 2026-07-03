@@ -1,0 +1,1 @@
+import{n as e,t}from"./upgrade-BFPQNO0I.js";e();export{t as call};

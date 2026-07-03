@@ -1,0 +1,1 @@
+import{i as e,o as t}from"./windowsPaths-Cnsv00SD.js";e();export{t as setShellIfWindows};

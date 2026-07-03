@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{n as t,t as n}from"./conversation-DI5L_anU.js";var r;e((()=>{t(),r=async(e,t)=>(await n(t),{type:`text`,value:``})}))();export{r as call};
