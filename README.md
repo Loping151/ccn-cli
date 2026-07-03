@@ -4,12 +4,19 @@ A terminal AI coding CLI for Anthropic-compatible endpoints.
 
 ## Install
 
+**macOS / Linux**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.sh | bash
 ```
 
-Installs a self-contained build to `~/.ccn-app` and a `ccn` launcher in `~/.local/bin`
-(installs a local Node.js 20 if none is present). Re-run to update.
+**Windows (PowerShell)**
+```powershell
+irm https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.ps1 | iex
+```
+
+Installs a self-contained build to `~/.ccn-app` (`%USERPROFILE%\.ccn-app` on Windows)
+and a `ccn` launcher on your `PATH`, installing a local Node.js 20 if none is present.
+Re-run to update. Open a new shell afterwards so `PATH` picks up `ccn`.
 
 ## Usage
 
