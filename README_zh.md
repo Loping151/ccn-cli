@@ -4,6 +4,8 @@
 
 面向 Anthropic 兼容端点（GLM / Kimi / DeepSeek / MiniMax 等）的终端 AI 编程 CLI。
 
+> 欢迎外部朋友使用。装好后配一个 Anthropic 兼容端点即可开跑；更新用 `ccn update`，遇到问题看下面的指令与环境变量说明。
+
 ## 安装
 
 **macOS / Linux**
@@ -17,7 +19,9 @@ irm https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.ps1 | iex
 ```
 
 安装一份自包含构建到 `~/.ccn-app`（Windows 为 `%USERPROFILE%\.ccn-app`），并在 `PATH` 放一个
-`ccn` 启动器；本机没有 Node.js 20 时会自动装一份。重跑即升级。装完请新开一个终端让 `PATH` 生效。
+`ccn` 启动器；本机没有 Node.js 20 时会自动装一份。装完请新开一个终端让 `PATH` 生效。
+
+**更新：** 运行 `ccn update`（或重跑上面的安装命令）。
 
 ## 快速开始
 

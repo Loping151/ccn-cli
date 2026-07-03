@@ -17,8 +17,10 @@ irm https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.ps1 | iex
 ```
 
 Installs a self-contained build to `~/.ccn-app` (`%USERPROFILE%\.ccn-app` on Windows) and a
-`ccn` launcher on your `PATH`, installing a local Node.js 20 if none is present. Re-run to update.
+`ccn` launcher on your `PATH`, installing a local Node.js 20 if none is present.
 Open a new shell afterwards so `PATH` picks up `ccn`.
+
+**Update:** run `ccn update` (or re-run the install command above).
 
 ## Quick start
 
