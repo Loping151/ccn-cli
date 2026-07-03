@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{Dc as t,_c as n}from"./paths-BdgeTjAU.js";import{i as r,s as i}from"./intl-CLeE9DsD.js";function a(){let e=n().preferredLanguage??`auto`;return e===`en`||e===`zh`?e:r()===`zh`?`zh`:`en`}function o(e){return s[e]??e}var s,c=e((()=>{t(),i(),s={auto:`Auto (follow system)`,en:`English`,zh:`中文`}}));export{a as n,c as r,o as t};

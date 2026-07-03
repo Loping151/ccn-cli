@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./language-BrDb04iC.js";t();export{e as getResolvedLanguage};

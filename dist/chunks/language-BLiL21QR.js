@@ -1,1 +1,0 @@
-import{n as e,r as t}from"./language-B2Eo4Dxm.js";t();export{e as getResolvedLanguage};

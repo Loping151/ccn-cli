@@ -1,0 +1,1 @@
+import{r as e,t}from"./sink-C8Tx2o4g.js";t();export{e as initializeAnalyticsSink};
