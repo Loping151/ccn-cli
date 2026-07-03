@@ -1,0 +1,1 @@
+import{r as e,t}from"./datadog-CCLBrEC4.js";t();export{e as shutdownDatadog};

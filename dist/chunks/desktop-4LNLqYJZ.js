@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-DR8-3Aex.js";import{Rn as t}from"./src-B5EwquZD.js";import{t as n}from"./jsx-runtime-D-D469L8.js";import{n as r,t as i}from"./DesktopHandoff-OhwLWgyZ.js";async function a(e){return(0,o.jsx)(i,{onDone:e})}var o;e((()=>{t(),r(),o=n()}))();export{a as call};

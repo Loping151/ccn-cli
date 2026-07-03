@@ -1,0 +1,1 @@
+import{n as e,t}from"./pluginStartupCheck-wlSbY2F0.js";e();export{t as getPluginEditableScopes};

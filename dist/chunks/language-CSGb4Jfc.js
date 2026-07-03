@@ -1,1 +1,0 @@
-import{oi as e,si as t}from"./paths-BM8Xlbzb.js";t();export{e as getResolvedLanguage};

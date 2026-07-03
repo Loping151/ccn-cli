@@ -1,1 +1,0 @@
-import{n as e,t}from"./pluginStartupCheck-DlepMagi.js";e();export{t as getPluginEditableScopes};
