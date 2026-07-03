@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-DR8-3Aex.js";import{Rn as t}from"./src-B5EwquZD.js";import{t as n}from"./jsx-runtime-D-D469L8.js";import{n as r,t as i}from"./PluginSettings-D7nvhero.js";async function a(e,t,n){return(0,o.jsx)(i,{onComplete:e,args:n})}var o;e((()=>{t(),r(),o=n()}))();export{a as call};

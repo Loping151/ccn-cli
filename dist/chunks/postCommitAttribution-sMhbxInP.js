@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-DR8-3Aex.js";var t;e((()=>{t=async()=>{}}))();export{t as installPrepareCommitMsgHook};

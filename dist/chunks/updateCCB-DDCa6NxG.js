@@ -1,9 +1,0 @@
-import{In as e,Ln as t}from"./src-B5EwquZD.js";import{n,o as r}from"./process-DMKLUQIO.js";import{IE as i,PE as a}from"./loadAgentsDir-D_sm5ZPH.js";import{n as o,t as s}from"./distRoot-8VaBeAwG.js";import{join as c}from"node:path";import{execSync as l}from"node:child_process";import{existsSync as u,readFileSync as d}from"node:fs";import{homedir as f}from"node:os";t(),o(),i(),n();var p=`https://raw.githubusercontent.com/Loping151/ccn-cli/main`,m=`${p}/install.sh`,h=`${p}/install.ps1`,g=`${p}/VERSION`;function _(e,t){let n=e=>e.trim().replace(/^\D+/,``).split(`.`).map(e=>parseInt(e,10)||0),r=n(e),i=n(t);for(let e=0;e<3;e++){if((r[e]??0)>(i[e]??0))return!0;if((r[e]??0)<(i[e]??0))return!1}return!0}async function v(){try{let e=await fetch(g,{signal:AbortSignal.timeout(8e3),cache:`no-store`});if(!e.ok)return null;let t=(await e.text()).trim();return/^\d+\.\d+/.test(t)?t:null}catch{return null}}function y(){try{let e=c(s,`..`,`package.json`);if(u(e)){let t=JSON.parse(d(e,`utf-8`));if(t.version)return t.version}}catch{}return`1.5.1`}async function b(){let t=y();r(`Current version: ${t}\n`);let n=await v();if(n&&_(t,n)){r(e.green(`CCN is up to date (${t}) — nothing to update.`)+`
-`),await a(0);return}n&&r(`Latest version:  ${n}\n`),r(`Updating CCN via the install script...
-
-`);let i=process.platform===`win32`;try{i?l(`powershell -NoProfile -Command "irm ${h} | iex"`,{stdio:`inherit`,timeout:3e5}):l(`curl -fsSL ${m} | bash`,{stdio:`inherit`,cwd:f(),timeout:3e5}),r(`
-`+e.green(`CCN updated. Restart ccn to use the new version.`)+`
-`)}catch(t){process.stderr.write(e.red(`Update failed`)+`
-`),process.stderr.write(`${t}\n\n`),process.stderr.write(`Update manually:
-`),process.stderr.write(e.bold(`  ${i?`irm ${h} | iex`:`curl -fsSL ${m} | bash`}`)+`
-`),await a(1);return}await a(0)}export{b as updateCCB};

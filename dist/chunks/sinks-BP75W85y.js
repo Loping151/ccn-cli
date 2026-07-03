@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-B4XKFnPN.js";export{e as initSinks};
