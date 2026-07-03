@@ -31,16 +31,18 @@ irm https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.ps1 | iex
 # 示例：GLM（智谱）
 export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
 export ANTHROPIC_AUTH_TOKEN="你的密钥"
-export ANTHROPIC_MODEL="glm-4.6"
+export ANTHROPIC_MODEL="glm-5.2[1m]"   # [1m] = 用 1M 上下文窗口
 ccn
 ```
+
+> 模型名可选加 `[1m]` / `[2m]` 后缀，让该模型走 1M / 2M 上下文窗口；发请求前会自动去掉这个后缀。
 
 任何 Anthropic 兼容端点都可以，改这三个值即可：
 
 | 供应商 | `ANTHROPIC_BASE_URL` | `ANTHROPIC_MODEL` 示例 |
 |---|---|---|
-| GLM（智谱） | `https://api.z.ai/api/anthropic` | `glm-4.6` |
-| DeepSeek | `https://api.deepseek.com/anthropic` | `deepseek-chat` |
+| GLM（智谱） | `https://api.z.ai/api/anthropic` | `glm-5.2[1m]` |
+| DeepSeek | `https://api.deepseek.com/anthropic` | `deepseek-v4-pro` |
 | MiniMax | `https://api.minimaxi.com/anthropic` | *（你套餐的模型）* |
 | Kimi / 其他 | *（供应商的 Anthropic 端点）* | *（供应商的模型名）* |
 

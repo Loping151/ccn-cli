@@ -30,16 +30,19 @@ Set the endpoint, key, **and model** — the model name is required (CCN does no
 # Example: GLM (Zhipu AI)
 export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
 export ANTHROPIC_AUTH_TOKEN="your-api-key"
-export ANTHROPIC_MODEL="glm-4.6"
+export ANTHROPIC_MODEL="glm-5.2[1m]"   # [1m] = use 1M context window
 ccn
 ```
+
+> The optional `[1m]` / `[2m]` suffix opts the model into a 1M / 2M context window;
+> it is stripped from the model name before the request is sent.
 
 Any Anthropic-compatible endpoint works — just change the three values:
 
 | Provider | `ANTHROPIC_BASE_URL` | example `ANTHROPIC_MODEL` |
 |---|---|---|
-| GLM (Zhipu) | `https://api.z.ai/api/anthropic` | `glm-4.6` |
-| DeepSeek | `https://api.deepseek.com/anthropic` | `deepseek-chat` |
+| GLM (Zhipu) | `https://api.z.ai/api/anthropic` | `glm-5.2[1m]` |
+| DeepSeek | `https://api.deepseek.com/anthropic` | `deepseek-v4-pro` |
 | MiniMax | `https://api.minimaxi.com/anthropic` | *(your plan's model)* |
 | Kimi / others | *(provider's Anthropic endpoint)* | *(provider's model)* |
 
