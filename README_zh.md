@@ -90,11 +90,14 @@ ccn
 | `ANTHROPIC_BASE_URL` | API 端点（Anthropic Messages 兼容） |
 | `ANTHROPIC_AUTH_TOKEN` | Bearer token / API key |
 | `ANTHROPIC_MODEL` | 主模型名（**必填**） |
-| `ANTHROPIC_DEFAULT_SONNET_MODEL` | “sonnet”档使用的模型 |
-| `ANTHROPIC_DEFAULT_OPUS_MODEL` | “opus”档使用的模型 |
-| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | 小/快档使用的模型 |
-| `ANTHROPIC_CUSTOM_HEADERS` | 追加请求头，每行一个 `Name: Value` |
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | “sonnet”档模型（任意模型名，可带 `[1m]`） |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL` | “opus”档模型 |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | 小/快档模型 |
+| `ANTHROPIC_CUSTOM_HEADERS` | 请求头（每行一个 `Name: Value`），**替换**同名默认头（非追加） |
 | `API_TIMEOUT_MS` | 请求超时（毫秒，默认 600000） |
+
+> 档位变量可填任意模型名（没有固定别名表）。后台任务与轻量操作（标题、摘要）用**小/快(haiku)档**；
+> 主对话用 `ANTHROPIC_MODEL`；子代理默认用主模型。
 
 ### CCN 选项
 

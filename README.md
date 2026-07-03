@@ -90,11 +90,15 @@ Any Anthropic-compatible endpoint works — just change the three values:
 | `ANTHROPIC_BASE_URL` | API endpoint (Anthropic Messages compatible) |
 | `ANTHROPIC_AUTH_TOKEN` | Bearer token / API key |
 | `ANTHROPIC_MODEL` | Main model name (**required**) |
-| `ANTHROPIC_DEFAULT_SONNET_MODEL` | Model used for the "sonnet" tier |
-| `ANTHROPIC_DEFAULT_OPUS_MODEL` | Model used for the "opus" tier |
-| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | Model used for the small/fast tier |
-| `ANTHROPIC_CUSTOM_HEADERS` | Extra request headers, one `Name: Value` per line |
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | Model for the "sonnet" tier (any model name, `[1m]` allowed) |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL` | Model for the "opus" tier |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | Model for the small/fast tier |
+| `ANTHROPIC_CUSTOM_HEADERS` | Request headers (one `Name: Value` per line) that **replace** any matching default header |
 | `API_TIMEOUT_MS` | Request timeout in ms (default 600000) |
+
+> The tier variables accept any model name (there's no fixed alias list). Background work
+> and quick operations (titles, summaries) use the **small/fast (haiku) tier**; the main
+> conversation uses `ANTHROPIC_MODEL`; sub-agents default to the main model.
 
 ### CCN options
 
