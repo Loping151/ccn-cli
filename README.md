@@ -38,8 +38,11 @@ export ANTHROPIC_MODEL="glm-5.2[1m]"   # [1m] = use 1M context window
 ccn
 ```
 
-> The optional `[1m]` / `[2m]` suffix opts the model into a 1M / 2M context window;
-> it is stripped from the model name before the request is sent.
+> The optional `[...]` suffix declares the model's context window — `[200k]`, `[1m]`,
+> `[10b]`, case-insensitive (`1M`/`200K` fine), decimals allowed (`[1.5m]`). It is a pure
+> client-side annotation: stripped before requests, used locally for the context meter,
+> auto-compact threshold, and the "(1M context)" notes in `/model`.
+> See **[docs/configuration.md](docs/configuration.md)** for the full configuration spec.
 
 Any Anthropic-compatible endpoint works — just change the three values:
 
@@ -51,7 +54,16 @@ Any Anthropic-compatible endpoint works — just change the three values:
 | Kimi / others | *(provider's Anthropic endpoint)* | *(provider's model)* |
 
 > Prefer not to use env vars? Just run `ccn` and add/switch endpoints in-app with `/endpoint`
-> (stores url / key / model / alias; changes take effect immediately).
+> (stores url / key / model / alias; changes take effect immediately — the form shows a GLM
+> example to copy from). Endpoints persist in `~/.ccn/.ccn.json` under `customEndpoints`;
+> the exact file format is documented in [docs/configuration.md](docs/configuration.md).
+
+## Documentation
+
+- **[docs/configuration.md](docs/configuration.md)** — config files, adding endpoints, the `[]`
+  model-suffix spec, and every `/config` item with meaning + default.
+- **[docs/commands.md](docs/commands.md)** — all slash commands.
+- **[docs/environment.md](docs/environment.md)** — all environment variables.
 
 ## Commands
 

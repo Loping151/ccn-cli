@@ -98,7 +98,9 @@ Write-Host @"
 Get started:
   `$env:ANTHROPIC_BASE_URL = "https://your-endpoint/anthropic"
   `$env:ANTHROPIC_AUTH_TOKEN = "your-key"
+  `$env:ANTHROPIC_MODEL = "your-model"        # e.g. glm-5.2, deepseek-chat, MiniMax-M3
   ccn
+  # Or just run 'ccn' and use /endpoint to set base URL + key + model in one place.
 
 Open a NEW terminal so the PATH update takes effect.
 To uninstall:  ccn uninstall   (or irm https://raw.githubusercontent.com/$Repo/main/uninstall.ps1 | iex)

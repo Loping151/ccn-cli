@@ -39,7 +39,10 @@ export ANTHROPIC_MODEL="glm-5.2[1m]"   # [1m] = 用 1M 上下文窗口
 ccn
 ```
 
-> 模型名可选加 `[1m]` / `[2m]` 后缀，让该模型走 1M / 2M 上下文窗口；发请求前会自动去掉这个后缀。
+> 模型名可选加 `[...]` 后缀声明上下文窗口——`[200k]`、`[1m]`、`[10b]`,大小写不限
+> (`1M`/`200K` 都行),支持小数(`[1.5m]`)。它是纯客户端标注:发请求前剥掉,本地用于
+> 上下文用量分母、auto-compact 阈值和 `/model` 里的"(1M context)"标注。
+> 完整配置规范见 **[docs/configuration_zh.md](docs/configuration_zh.md)**。
 
 任何 Anthropic 兼容端点都可以，改这三个值即可：
 
@@ -50,8 +53,16 @@ ccn
 | MiniMax | `https://api.minimaxi.com/anthropic` | *（你套餐的模型）* |
 | Kimi / 其他 | *（供应商的 Anthropic 端点）* | *（供应商的模型名）* |
 
-> 不想用环境变量？直接运行 `ccn`，用 `/endpoint` 在工具内新增/切换端点
+> 不想用环境变量？直接运行 `ccn`，用 `/endpoint` 在工具内新增/切换端点(表单旁有 GLM
+> 官方示例可照抄)。端点持久化在 `~/.ccn/.ccn.json` 的 `customEndpoints`,文件格式见
+> [docs/configuration_zh.md](docs/configuration_zh.md)。
 > （保存 url / key / model / 别名，切换即时生效）。
+
+## 文档
+
+- **[docs/configuration_zh.md](docs/configuration_zh.md)** — 配置文件、添加端点、`[]` 模型后缀规范、全部 `/config` 项(含义+默认值)。
+- **[docs/commands.md](docs/commands.md)** — 全部斜杠指令(中英)。
+- **[docs/environment.md](docs/environment.md)** — 全部环境变量(中英)。
 
 ## 指令
 

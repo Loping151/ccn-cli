@@ -97,7 +97,9 @@ cat <<EOF
 Get started:
   export ANTHROPIC_BASE_URL="https://your-endpoint/anthropic"
   export ANTHROPIC_AUTH_TOKEN="your-key"
-  ccn                      # or run 'ccn' and configure with /endpoint
+  export ANTHROPIC_MODEL="your-model"        # e.g. glm-5.2, deepseek-chat, MiniMax-M3
+  ccn
+  # Or just run 'ccn' and use /endpoint to set base URL + key + model in one place.
 
 If 'ccn' is not found, open a new shell or run:
   export PATH="\$HOME/.local/bin:\$PATH"
