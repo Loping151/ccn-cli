@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.2
+
+- Themes: dark/light retuned to One Dark / One Light; new default warm gold-and-green theme; three-way split (mascot / terminal palette / diff colors) switchable in `/config`; onboarding now asks for interface language first.
+- Reliability: guard against event-loop stalls (a watchdog writes a hang report if the UI blocks); line-width cache is now LRU so long sessions don't re-measure the whole transcript.
+- Privacy: telemetry / feedback / bootstrap / official-registry calls now stay off unless the endpoint is first-party Anthropic — nothing (incl. API keys) leaks to api.anthropic.com on third-party endpoints.
+- Cost line hidden on third-party endpoints (the USD table only applies to first-party).
+- Safety: `ccn uninstall` and the install/uninstall scripts now refuse to remove `$HOME` / root / unsafe config paths; installer/updater hardened (retries, atomic swap, version pinned for `ccn update`).
+- Brand: remaining "Claude Code" strings and file names updated to CCN.
+
 ## 1.5.1
 
 - Endpoints: `/endpoint` to add/edit/switch API endpoints (url, key, model, tag alias, description); the description shows in `/model`.
