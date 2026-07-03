@@ -2,6 +2,7 @@
 # CCN one-line installer.  Usage:
 #   curl -fsSL https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.sh | bash
 set -euo pipefail
+: "${HOME:?HOME is unset — refusing to run}"   # 空 HOME 会让 rm -rf "$APP" 塌成 /.ccn-app
 
 REPO="Loping151/ccn-cli"
 BRANCH="main"
@@ -39,9 +40,11 @@ tmp="$(mktemp -d)"
 curl -fsSL "https://github.com/$REPO/archive/refs/heads/$BRANCH.tar.gz" | tar -xz -C "$tmp"
 src="$tmp/ccn-cli-$BRANCH/dist"
 [ -d "$src" ] || { echo "!! dist not found in download"; exit 1; }
+ver="$(cat "$tmp/ccn-cli-$BRANCH/VERSION" 2>/dev/null | tr -d '[:space:]')"
 rm -rf "$APP"; mkdir -p "$APP"
 cp -R "$src/." "$APP/"
-printf '{"type":"module"}\n' > "$APP/package.json"
+# 写 type:module（node<20 需要）+ 真实版本号（供 ccn update 版本检测读取）
+printf '{"type":"module","version":"%s"}\n' "${ver:-0.0.0}" > "$APP/package.json"
 rm -rf "$tmp"
 
 # ---- 3. Launcher ------------------------------------------------------------

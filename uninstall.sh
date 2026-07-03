@@ -3,10 +3,12 @@
 #   curl -fsSL https://raw.githubusercontent.com/Loping151/ccn-cli/main/uninstall.sh | bash
 # Or, if ccn still runs:  ccn uninstall
 set -u
+: "${HOME:?HOME is unset — refusing to run}"   # 空/未设 HOME 会让路径塌成 /，绝不继续
 
 APP="$HOME/.ccn-app"
 BIN="$HOME/.local/bin/ccn"
 CONFIG="${CLAUDE_CONFIG_DIR:-$HOME/.ccn}"
+[ -n "${CONFIG//[[:space:]]/}" ] || CONFIG="$HOME/.ccn"   # 空/纯空白回退，别塌成相对路径
 SHARED="$HOME/.claude"   # 与官方 claude 共享的 skill/记忆 —— 绝不删
 
 ask() { local r; read -r -p "$1" r; printf '%s' "$r"; }
@@ -30,6 +32,16 @@ if [ "$DEL_CONFIG" = yes ] && [ "$CONFIG" = "$SHARED" ]; then
   echo "Config dir is $SHARED (shared with official Claude Code) — keeping it."
   DEL_CONFIG=no
 fi
+
+# 护栏：CONFIG 解析成 $HOME / 其父 / 根时绝不删（去尾斜杠后比对；backup 也一并跳过）
+norm_config="${CONFIG%/}"; [ -z "$norm_config" ] && norm_config="/"
+case "$norm_config" in
+  "$HOME" | "$(dirname "$HOME")" | "/" | ".")
+    if [ "$DEL_CONFIG" = yes ]; then
+      echo "Config dir resolves to an unsafe path ($CONFIG) — refusing to delete it."
+      DEL_CONFIG=no
+    fi ;;
+esac
 
 if [ "$DEL_CONFIG" = yes ]; then
   if is_yes "$(ask 'Back up config/sessions to a .tar.gz first? [Y/n] ')" yes; then
