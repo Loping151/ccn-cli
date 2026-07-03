@@ -23,6 +23,10 @@ irm https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.ps1 | iex
 
 **更新：** 运行 `ccn update`（或重跑上面的安装命令）。
 
+**卸载：** 运行 `ccn uninstall` —— 会先确认，可选择保留或删除 config/session；若删除，
+会先问是否压缩备份成 `.tar.gz`（备份失败则中止删除）。
+或：`curl -fsSL https://raw.githubusercontent.com/Loping151/ccn-cli/main/uninstall.sh | bash`
+
 ## 快速开始
 
 设置端点、密钥、**以及模型名**——模型名是必填的（CCN 不会自动探测）。

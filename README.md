@@ -22,6 +22,10 @@ Open a new shell afterwards so `PATH` picks up `ccn`.
 
 **Update:** run `ccn update` (or re-run the install command above).
 
+**Uninstall:** run `ccn uninstall` — asks for confirmation, lets you keep or delete
+config/sessions, and (if deleting) offers to back them up to a `.tar.gz` first.
+Or: `curl -fsSL https://raw.githubusercontent.com/Loping151/ccn-cli/main/uninstall.sh | bash`
+
 ## Quick start
 
 Set the endpoint, key, **and model** — the model name is required (CCN does not auto-detect it).
