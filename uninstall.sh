@@ -6,7 +6,7 @@ set -u
 
 APP="$HOME/.ccn-app"
 BIN="$HOME/.local/bin/ccn"
-CONFIG="${CLAUDE_CONFIG_DIR:-$HOME/.ccb}"
+CONFIG="${CLAUDE_CONFIG_DIR:-$HOME/.ccn}"
 SHARED="$HOME/.claude"   # 与官方 claude 共享的 skill/记忆 —— 绝不删
 
 ask() { local r; read -r -p "$1" r; printf '%s' "$r"; }

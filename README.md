@@ -100,7 +100,7 @@ Any Anthropic-compatible endpoint works — just change the three values:
 
 | Variable | Description |
 |---|---|
-| `CLAUDE_CONFIG_DIR` | Config & session directory (default `~/.ccb`) |
+| `CLAUDE_CONFIG_DIR` | Config & session directory (default `~/.ccn`) |
 | `CCN_INDEPENDENT_DATA=1` | Keep skills/memory in the config dir instead of sharing `~/.claude` |
 | `CCN_CONTEXT_WINDOW=<tokens>` | Override the context-window limit (footer % + auto-compact) |
 | `CCN_UA_VERSION=<version>` | Override the User-Agent version |

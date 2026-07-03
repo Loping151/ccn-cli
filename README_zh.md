@@ -100,7 +100,7 @@ ccn
 
 | 变量 | 说明 |
 |---|---|
-| `CLAUDE_CONFIG_DIR` | 配置与会话目录（默认 `~/.ccb`） |
+| `CLAUDE_CONFIG_DIR` | 配置与会话目录（默认 `~/.ccn`） |
 | `CCN_INDEPENDENT_DATA=1` | skill/记忆放在配置目录，不与 `~/.claude` 共享 |
 | `CCN_CONTEXT_WINDOW=<tokens>` | 覆盖上下文窗口上限（footer 百分比 + auto-compact） |
 | `CCN_UA_VERSION=<version>` | 覆盖 User-Agent 版本 |
