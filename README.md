@@ -1,6 +1,8 @@
 # CCN
 
-A terminal AI coding CLI for Anthropic-compatible endpoints.
+**English** · [中文](README_zh.md)
+
+A terminal AI coding CLI for Anthropic-compatible endpoints (GLM, Kimi, DeepSeek, MiniMax, …).
 
 ## Install
 
@@ -14,23 +16,33 @@ curl -fsSL https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.sh |
 irm https://raw.githubusercontent.com/Loping151/ccn-cli/main/install.ps1 | iex
 ```
 
-Installs a self-contained build to `~/.ccn-app` (`%USERPROFILE%\.ccn-app` on Windows)
-and a `ccn` launcher on your `PATH`, installing a local Node.js 20 if none is present.
-Re-run to update. Open a new shell afterwards so `PATH` picks up `ccn`.
+Installs a self-contained build to `~/.ccn-app` (`%USERPROFILE%\.ccn-app` on Windows) and a
+`ccn` launcher on your `PATH`, installing a local Node.js 20 if none is present. Re-run to update.
+Open a new shell afterwards so `PATH` picks up `ccn`.
 
-## Usage
+## Quick start
+
+Set the endpoint, key, **and model** — the model name is required (CCN does not auto-detect it).
 
 ```bash
-export ANTHROPIC_BASE_URL="https://your-endpoint/anthropic"
-export ANTHROPIC_AUTH_TOKEN="your-key"
-
-ccn                    # start interactive session
-ccn --resume           # resume a previous session
-ccn -p "hello"         # headless / print mode
-ccn --version
+# Example: GLM (Zhipu AI)
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/anthropic"
+export ANTHROPIC_AUTH_TOKEN="your-api-key"
+export ANTHROPIC_MODEL="glm-4.6"
+ccn
 ```
 
-Or start `ccn` and configure the endpoint in-app with `/endpoint`.
+Any Anthropic-compatible endpoint works — just change the three values:
+
+| Provider | `ANTHROPIC_BASE_URL` | example `ANTHROPIC_MODEL` |
+|---|---|---|
+| GLM (Zhipu) | `https://api.z.ai/api/anthropic` | `glm-4.6` |
+| DeepSeek | `https://api.deepseek.com/anthropic` | `deepseek-chat` |
+| MiniMax | `https://api.minimaxi.com/anthropic` | *(your plan's model)* |
+| Kimi / others | *(provider's Anthropic endpoint)* | *(provider's model)* |
+
+> Prefer not to use env vars? Just run `ccn` and add/switch endpoints in-app with `/endpoint`
+> (stores url / key / model / alias; changes take effect immediately).
 
 ## Commands
 
@@ -68,7 +80,7 @@ Or start `ccn` and configure the endpoint in-app with `/endpoint`.
 |---|---|
 | `ANTHROPIC_BASE_URL` | API endpoint (Anthropic Messages compatible) |
 | `ANTHROPIC_AUTH_TOKEN` | Bearer token / API key |
-| `ANTHROPIC_MODEL` | Main model name |
+| `ANTHROPIC_MODEL` | Main model name (**required**) |
 | `ANTHROPIC_DEFAULT_SONNET_MODEL` | Model used for the "sonnet" tier |
 | `ANTHROPIC_DEFAULT_OPUS_MODEL` | Model used for the "opus" tier |
 | `ANTHROPIC_DEFAULT_HAIKU_MODEL` | Model used for the small/fast tier |
