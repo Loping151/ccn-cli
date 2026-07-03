@@ -1,0 +1,2 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{n as t,t as n}from"./cwd--iizewsn.js";import{n as r,o as i}from"./fileStateCache-BrEalCpX.js";import{relative as a}from"path";async function o(e,t){let i=t.readFileState?r(t.readFileState):[];return i.length===0?{type:`text`,value:`No files in context`}:{type:`text`,value:`Files in context:\n${i.map(e=>a(n(),e)).join(`
+`)}`}}e((()=>{t(),i()}))();export{o as call};

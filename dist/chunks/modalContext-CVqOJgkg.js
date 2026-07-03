@@ -1,1 +1,0 @@
-import{n as e,o as t}from"./chunk-DR8-3Aex.js";import{Rn as n}from"./src-B5EwquZD.js";function r(){return(0,a.useContext)(o)!==null}function i(e){let t=(0,a.useContext)(o);return t?{rows:t.rows,columns:t.columns}:e}var a,o,s=e((()=>{a=t(n(),1),o=(0,a.createContext)(null)}));export{i,s as n,r,o as t};

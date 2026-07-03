@@ -1,1 +1,0 @@
-var e=class{async destroyAll(){}};export{e as SessionManager};

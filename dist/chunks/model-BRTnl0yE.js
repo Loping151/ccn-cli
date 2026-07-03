@@ -1,0 +1,1 @@
+import{Dr as e,Pr as t}from"./paths-Cplm1UEx.js";t();export{e as getMainLoopModel};

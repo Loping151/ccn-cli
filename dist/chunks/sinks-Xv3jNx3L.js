@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-DUhA7-m-.js";export{e as initSinks};
