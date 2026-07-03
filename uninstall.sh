@@ -61,6 +61,25 @@ rm -rf "$APP" 2>/dev/null
 rm -f "$BIN" 2>/dev/null
 [ "$DEL_CONFIG" = yes ] && rm -rf "$CONFIG" 2>/dev/null
 
+# 清掉 install.sh 往各 rc 里加的 PATH 块（唯一标记 + 其后一行 export）
+for rc in "$HOME/.bashrc" "$HOME/.zshrc" "$HOME/.profile"; do
+  [ -f "$rc" ] || continue
+  if grep -qF '# added by ccn installer' "$rc" 2>/dev/null; then
+    tmp="$(mktemp)" && awk '
+      /# added by ccn installer/ {skip=1; next}
+      skip>0 {skip--; next}
+      {print}' "$rc" > "$tmp" && cat "$tmp" > "$rc" && rm -f "$tmp"
+  fi
+done
+
+# 若安装时装过独立 node（~/.local/node*），可选一并清掉
+if [ -e "$HOME/.local/node" ] || ls -d "$HOME"/.local/node-* >/dev/null 2>&1; then
+  if is_yes "$(ask 'Also remove the Node.js installed by ccn (~/.local/node*)? [y/N] ')" no; then
+    rm -rf "$HOME"/.local/node "$HOME"/.local/node-* 2>/dev/null
+    echo "Removed ~/.local/node*"
+  fi
+fi
+
 echo
 echo "CCN uninstalled."
 [ "$DEL_CONFIG" = no ] && echo "Config & sessions kept at $CONFIG."
