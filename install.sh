@@ -43,7 +43,7 @@ say "Using node $("$NODE" -v)"
 # ---- 2. Download dist（暂存 → 原子替换，失败不动旧安装） --------------------
 say "Downloading CCN"
 tmp="$(mktemp -d)"
-trap 'rm -rf "$tmp" "$APP.new"' EXIT
+trap 'rm -rf "$tmp"' EXIT
 dl "https://github.com/$REPO/archive/refs/heads/$BRANCH.tar.gz" -o "$tmp/src.tgz" \
   || die "Download failed (network?)"
 tar -xzf "$tmp/src.tgz" -C "$tmp" || die "Extract failed"
@@ -51,15 +51,21 @@ src="$tmp/ccn-cli-$BRANCH/dist"
 [ -f "$src/cli-node.js" ] || die "dist/cli-node.js not found in download"
 ver="$(tr -d '[:space:]' < "$tmp/ccn-cli-$BRANCH/VERSION" 2>/dev/null || true)"
 
-rm -rf "$APP.new"; mkdir -p "$APP.new"
-cp -R "$src/." "$APP.new/"
+# 版本目录布局：每次安装进独立的 versions/<ver>-<时间戳>/，再原子翻转 current 指针。
+# 运行中的旧会话钉在自己的版本目录里，懒加载的哈希 chunk 不受更新影响——
+# 整目录替换会让长会话在退出/懒加载时报模块丢失甚至卡死。
+VDIR="$APP/versions/${ver:-0.0.0}-$(date +%s)"
+mkdir -p "$VDIR"
+cp -R "$src/." "$VDIR/"
 # type:module（node<20 需要）+ 真实版本号（供 ccn update 版本检测读取）
-printf '{"type":"module","version":"%s"}\n' "${ver:-0.0.0}" > "$APP.new/package.json"
-# 原子替换：先挪走旧的再落新的，失败可回滚
-rm -rf "$APP.old"
-[ -d "$APP" ] && mv "$APP" "$APP.old"
-mv "$APP.new" "$APP" || { [ -d "$APP.old" ] && mv "$APP.old" "$APP"; die "Install swap failed"; }
-rm -rf "$APP.old" "$tmp"
+printf '{"type":"module","version":"%s"}\n' "${ver:-0.0.0}" > "$VDIR/package.json"
+ln -sfn "$VDIR" "$APP/current"
+# 清理旧平铺布局的顶层文件（一次性迁移；不动 versions/）
+find "$APP" -maxdepth 1 -type f -delete 2>/dev/null || true
+rm -rf "$APP/chunks" "$APP/vendor" 2>/dev/null || true
+# 保留最近 4 个版本（在跑的旧会话还要用自己的版本目录）
+ls -1dt "$APP/versions"/*/ 2>/dev/null | tail -n +5 | xargs -r rm -rf
+rm -rf "$tmp"
 trap - EXIT
 
 # ---- 3. Launcher ------------------------------------------------------------
@@ -67,7 +73,10 @@ mkdir -p "$BIN"
 cat > "$BIN/ccn" <<L
 #!/usr/bin/env bash
 NODE="$NODE"; [ -x "\$NODE" ] || NODE=node
-exec "\$NODE" "$APP/cli-node.js" "\$@"
+# 解析 current 指针到真实版本目录：本进程钉死其中，更新只翻指针不打扰运行中的会话
+DIR="\$(readlink -f "$APP/current" 2>/dev/null)"
+{ [ -n "\$DIR" ] && [ -f "\$DIR/cli-node.js" ]; } || DIR="$APP"
+exec "\$NODE" "\$DIR/cli-node.js" "\$@"
 L
 chmod +x "$BIN/ccn"
 

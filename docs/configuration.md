@@ -121,7 +121,7 @@ selected item shows this description in-panel when the terminal is wide).
 | Verbose | Full command outputs and expanded tool results | false |
 | Welcome box | Bordered welcome panel at startup (`welcomeBox: false` for minimal) | true |
 
-Related config-file-only keys: `customEndpoints` / `selectedEndpointId`
+Related config-file-only keys: `assistantName` (identity used for the assistant in prompts; defaults to the configured model name with the `[]` suffix stripped, e.g. `glm-5.2[1m]` → `glm-5.2`), `customEndpoints` / `selectedEndpointId`
 (see above), `customHeaders` (object of extra request headers; same-name
 headers are replaced), `mascot` (`starflower`/`clawd`/`heart`/`sparkle`/`rocket`),
 `diffColors` (`red-blue`/`red-green`), `autoDreamEnabled` (background memory

@@ -61,26 +61,35 @@ try {
   $verFile = Join-Path $tmp "ccn-cli-$Branch\VERSION"
   $ver = if (Test-Path $verFile) { (Get-Content $verFile -Raw).Trim() } else { "0.0.0" }
 
-  $stage = "$App.new"
-  if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
-  New-Item -ItemType Directory -Force -Path $stage | Out-Null
-  Copy-Item (Join-Path $src "*") $stage -Recurse -Force
-  "{`"type`":`"module`",`"version`":`"$ver`"}" | Set-Content -Path (Join-Path $stage "package.json") -Encoding ascii
+  # 版本目录布局：装进 versions\<ver>-<时间戳>\，用 Junction "current" 指过去。
+  # 运行中的旧会话钉在自己的版本目录，更新只翻指针，不再要求先关掉 ccn。
+  $stamp = [DateTimeOffset]::UtcNow.ToUnixTimeSeconds()
+  $vdir = Join-Path $App "versions\$ver-$stamp"
+  New-Item -ItemType Directory -Force -Path $vdir | Out-Null
+  Copy-Item (Join-Path $src "*") $vdir -Recurse -Force
+  "{`"type`":`"module`",`"version`":`"$ver`"}" | Set-Content -Path (Join-Path $vdir "package.json") -Encoding ascii
 
-  # 替换：删旧落新。若 ccn 正在运行会占用文件 → 提示关闭后重试。
-  if (Test-Path $App) {
-    try { Remove-Item $App -Recurse -Force }
-    catch { Die "Could not replace $App (is ccn running? close it and re-run)." }
+  $current = Join-Path $App "current"
+  if (Test-Path $current) { (Get-Item $current).Delete() }   # 只删 Junction 本身
+  New-Item -ItemType Junction -Path $current -Target $vdir | Out-Null
+
+  # 清理旧平铺布局顶层文件（一次性迁移）+ 只保留最近 4 个版本
+  Get-ChildItem $App -File -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue
+  foreach ($d in @("chunks", "vendor")) {
+    $p = Join-Path $App $d
+    if (Test-Path $p) { Remove-Item $p -Recurse -Force -ErrorAction SilentlyContinue }
   }
-  Move-Item $stage $App
+  Get-ChildItem (Join-Path $App "versions") -Directory |
+    Sort-Object LastWriteTime -Descending | Select-Object -Skip 4 |
+    Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
 } finally {
   if (Test-Path $tmp) { Remove-Item $tmp -Recurse -Force }
-  if (Test-Path "$App.new") { Remove-Item "$App.new" -Recurse -Force }
 }
 
 # ---- 3. Launcher (ccn.cmd) --------------------------------------------------
 New-Item -ItemType Directory -Force -Path $Bin | Out-Null
-$cmd = "@echo off`r`n`"$node`" `"$App\cli-node.js`" %*`r`n"
+# 启动时解析 current Junction 的真实目标，进程钉死在该版本目录
+$cmd = "@echo off`r`nfor /f `"delims=`" %%i in ('powershell -NoProfile -Command `"(Get-Item '$App\current').Target`"') do set CCNDIR=%%i`r`nif not exist `"%CCNDIR%\cli-node.js`" set CCNDIR=$App`r`n`"$node`" `"%CCNDIR%\cli-node.js`" %*`r`n"
 Set-Content -Path (Join-Path $Bin "ccn.cmd") -Value $cmd -Encoding ascii
 
 # ---- 4. PATH (user, 精确去重) ----------------------------------------------
