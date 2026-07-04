@@ -62,8 +62,8 @@ Any Anthropic-compatible endpoint works — just change the three values:
 
 - **[docs/configuration.md](docs/configuration.md)** — config files, adding endpoints, the `[]`
   model-suffix spec, and every `/config` item with meaning + default.
-- **[docs/commands.md](docs/commands.md)** — all slash commands.
-- **[docs/environment.md](docs/environment.md)** — all environment variables.
+- **[docs/commands.md](docs/commands.md)** — all slash commands (verified against the build).
+- **[docs/environment.md](docs/environment.md)** — all environment variables with defaults.
 
 ## Commands
 

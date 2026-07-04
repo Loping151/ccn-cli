@@ -61,8 +61,8 @@ ccn
 ## 文档
 
 - **[docs/configuration_zh.md](docs/configuration_zh.md)** — 配置文件、添加端点、`[]` 模型后缀规范、全部 `/config` 项(含义+默认值)。
-- **[docs/commands.md](docs/commands.md)** — 全部斜杠指令(中英)。
-- **[docs/environment.md](docs/environment.md)** — 全部环境变量(中英)。
+- **[docs/commands_zh.md](docs/commands_zh.md)** — 全部斜杠指令。
+- **[docs/environment_zh.md](docs/environment_zh.md)** — 全部环境变量(含默认值)。
 
 ## 指令
 

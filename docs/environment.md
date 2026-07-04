@@ -1,52 +1,58 @@
-# Environment variables · 环境变量
+# Environment variables
 
-## Endpoint & model · 端点与模型
+**English** · [中文](environment_zh.md)
 
-| Variable | Meaning · 含义 |
-|---|---|
-| `ANTHROPIC_BASE_URL` | Anthropic-compatible endpoint base URL · 兼容端点地址 |
-| `ANTHROPIC_AUTH_TOKEN` | API key/token (or `ANTHROPIC_API_KEY`) · 密钥 |
-| `ANTHROPIC_MODEL` | Model name, supports `[]` context suffix (`glm-5.2[1m]`) · 模型名,支持 `[]` 后缀 |
-| `ANTHROPIC_DEFAULT_SONNET_MODEL` | Model mapped to the Sonnet role · Sonnet 槽位模型 |
-| `ANTHROPIC_DEFAULT_OPUS_MODEL` | Model mapped to the Opus role · Opus 槽位模型 |
-| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | Model for background/cheap tasks · Haiku 槽位模型 |
-| `ANTHROPIC_DEFAULT_*_MODEL_NAME` / `_DESCRIPTION` | Display name/description in `/model` · 显示名/描述 |
-| `ANTHROPIC_CUSTOM_HEADERS` | Extra request headers (`Name: value`, newline-separated); replaces same-name headers · 自定义请求头(替换同名) |
-| `ANTHROPIC_MAX_OUTPUT_TOKENS` | Cap output tokens per response · 输出上限 |
+## Endpoint & model
 
-## Context & behavior · 上下文与行为
+| Variable | Meaning | Default |
+|---|---|---|
+| `ANTHROPIC_BASE_URL` | Anthropic-compatible endpoint base URL | unset (official API) |
+| `ANTHROPIC_AUTH_TOKEN` | API key/token (or `ANTHROPIC_API_KEY`) | unset |
+| `ANTHROPIC_MODEL` | Model name; supports the `[]` context suffix (`glm-5.2[1m]`) | unset |
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | Model mapped to the Sonnet role | unset |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL` | Model mapped to the Opus role | unset |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL` | Model for background/cheap tasks | unset |
+| `ANTHROPIC_DEFAULT_*_MODEL_NAME` / `_DESCRIPTION` | Display name/description in `/model` | model name |
+| `ANTHROPIC_CUSTOM_HEADERS` | Extra request headers (`Name: value`, newline-separated); replaces same-name headers | unset |
+| `ANTHROPIC_MAX_OUTPUT_TOKENS` | Cap output tokens per response | model default |
+| `API_TIMEOUT_MS` | Request timeout in ms | `600000` |
 
-| Variable | Meaning · 含义 |
-|---|---|
-| `CCN_CONTEXT_WINDOW` | Exact context window in tokens; overrides `[]` suffix and detection · 精确上下文窗口,一票覆盖 |
-| `CLAUDE_CODE_DISABLE_1M_CONTEXT` | Disable 1M context handling (`[1m]` ignored) · 禁 1M |
-| `CLAUDE_CODE_EFFORT_LEVEL` | Force effort: low/medium/high/xhigh · 固定思考强度 |
-| `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` | Treat every model as effort-capable · 强制启用 effort |
-| `MAX_THINKING_TOKENS` | Thinking token budget · 思考 token 预算 |
-| `API_TIMEOUT_MS` | Request timeout (default 600000) · 请求超时 |
+## Context & behavior
 
-## Directories & data · 目录与数据
+| Variable | Meaning | Default |
+|---|---|---|
+| `CCN_CONTEXT_WINDOW` | Exact context window (tokens); overrides `[]` suffix and detection | unset |
+| `CLAUDE_CODE_DISABLE_1M_CONTEXT` | Disable 1M handling (`[1m]` ignored) | off |
+| `CLAUDE_CODE_EFFORT_LEVEL` | Force effort: low/medium/high/xhigh | unset (auto) |
+| `CLAUDE_CODE_ALWAYS_ENABLE_EFFORT` | Treat every model as effort-capable | off (already default-on for unknown models) |
+| `MAX_THINKING_TOKENS` | Thinking token budget | model default |
 
-| Variable | Meaning · 含义 |
-|---|---|
-| `CLAUDE_CONFIG_DIR` | Config+session dir (default `~/.ccn`) · 配置/会话目录 |
-| `CCN_INDEPENDENT_DATA=1` | Keep skills/memory under the config dir instead of sharing `~/.claude` · 技能/记忆独立 |
+## Directories & data
 
-## Feature switches · 功能开关
+| Variable | Meaning | Default |
+|---|---|---|
+| `CLAUDE_CONFIG_DIR` | Config+session directory | `~/.ccn` |
+| `CCN_INDEPENDENT_DATA` | `1` = keep skills/memory under the config dir instead of sharing `~/.claude` | off (shared) |
 
-| Variable | Meaning · 含义 |
-|---|---|
-| `CLAUDE_CODE_NO_FLICKER=1/0` | Force fullscreen on/off (config `fullscreen` is the normal switch) · 强制全屏开/关 |
-| `CCN_HANG_WATCHDOG=0` | Disable the event-loop hang watchdog · 关卡死看门狗 |
-| `CCN_ENABLE_WEIXIN=1` | Register the bundled WeChat plugin · 启用微信内置插件 |
-| `CCN_ENABLE_BUILTIN_MCP=1` | List built-in MCP servers (computer-use, chrome) · 启用内置 MCP |
-| `CCN_ENABLE_TRUST_DIALOG=1` | Restore the folder-trust dialog · 恢复信任弹窗 |
-| `ENABLE_CLAUDEAI_MCP_SERVERS=1` | Restore claude.ai connectors · 恢复官方连接器 |
-| `ENABLE_AUTOUPDATER=1` | Re-enable the auto-updater (off by default; use `ccn update`) · 恢复自动更新 |
-| `DISABLE_AUTOUPDATER=1` | Belt-and-suspenders auto-update off · 双保险关更新 |
-| `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` | Disable auto-memory entirely · 关自动记忆 |
-| `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` | Standard proxy vars · 代理 |
+## Feature switches
 
-Settings-file switches (in `~/.ccn` settings.json): `autoDreamEnabled`
-(background memory consolidation, default **off**), `prefersReducedMotion`,
-`availableModels` (allowlist). See [configuration.md](configuration.md).
+| Variable | Meaning | Default |
+|---|---|---|
+| `CLAUDE_CODE_NO_FLICKER` | `1`/`0` force fullscreen on/off (normal switch is config `fullscreen`) | unset |
+| `CLAUDE_CODE_DISABLE_MOUSE` | Fullscreen without mouse capture | off |
+| `CCN_UA_VERSION` | Override the User-Agent version | build version |
+| `CCN_HANG_WATCHDOG` | `0` disables the event-loop hang watchdog | on |
+| `CCN_ENABLE_WEIXIN` | `1` registers the bundled WeChat plugin | off |
+| `CCN_ENABLE_BUILTIN_MCP` | `1` lists built-in MCP servers (computer-use, chrome) | off |
+| `CCN_ENABLE_TRUST_DIALOG` | `1` restores the folder-trust dialog | off (all folders trusted) |
+| `ENABLE_CLAUDEAI_MCP_SERVERS` | `1` restores claude.ai connectors | off |
+| `ENABLE_AUTOUPDATER` | `1` re-enables the auto-updater (use `ccn update` instead) | off |
+| `DISABLE_AUTOUPDATER` | `1` belt-and-suspenders auto-update off | (wrappers set `1`) |
+| `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | `1` disables auto-memory entirely | off |
+| `HTTP_PROXY` / `HTTPS_PROXY` / `NO_PROXY` | Standard proxy vars | unset |
+
+Settings-file keys (in `~/.ccn` settings.json): `autoDreamEnabled` (background
+memory consolidation — default **false**), `prefersReducedMotion` (default false),
+`availableModels` (allowlist — default unrestricted). Config-file keys like
+`assistantName`, `welcomeBox`, `mascot` are documented in
+[configuration.md](configuration.md).
