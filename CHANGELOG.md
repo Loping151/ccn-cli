@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.19
+
+- Default permission mode is now **auto** (classifier-approved safe actions; risky ones still prompt). Set `permissions.defaultMode` in settings or use `/config` to change it back.
+- Security: closed a path where `--assistant` could connect to the official claude.ai Remote Control relay despite `CCN_ENABLE_OFFICIAL_CCR` being off — the bridge now never contacts the official backend unless self-hosted (`CLAUDE_BRIDGE_BASE_URL`) or explicitly opted in.
+- Branding: the legacy upstream identifier is fully removed from the build; web search / fetch / artifacts now require your own endpoint instead of a third-party default (clear error message if unconfigured).
+- Footer: switches to compact form / drops low-priority segments **before** anything can truncate mid-segment (reserve now tracks the actual mode/tasks width).
+- `/usage`: copying the Quota tab no longer exports the Models chart; 1M-context model names read consistently everywhere.
+
 ## 1.5.17
 
 - Privacy / no phone-home: **all official claude.ai services are off by default.** Official Remote Control (CCR) no longer connects to `api.anthropic.com` unless `CCN_ENABLE_OFFICIAL_CCR=1`; a self-hosted backend via `CLAUDE_BRIDGE_BASE_URL` is unaffected. Built-in `mcp-chrome` no longer handshakes `127.0.0.1:12306` on startup (opt in with `CCN_ENABLE_BUILTIN_MCP=1`). Computer Use (desktop control) is off unless `CCN_ENABLE_COMPUTER_USE=1`. Web search / fetch / artifacts no longer route through a third-party default endpoint — configure your own.

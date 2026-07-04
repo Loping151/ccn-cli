@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{Jt as t,S as n,_ as r,cn as i,on as a}from"./paths-DJg_jbfO.js";function o(){return!r(`tengu_amber_quartz_disabled`,!1)}function s(){return i()?!!t()?.accessToken:!1}function c(){return s()&&o()}function l(){return o()}var u=e((()=>{n(),a()}));export{c as a,o as i,u as n,l as r,s as t};

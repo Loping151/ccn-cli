@@ -1,0 +1,1 @@
+import{n as e,r as t}from"./chunk-DR8-3Aex.js";import{_o as n,bo as r,ro as i}from"./paths-DJg_jbfO.js";var a=t({isPoorModeActive:()=>o,setPoorMode:()=>s});function o(){return c===null&&(c=i().poorMode===!0),c}function s(e){c=e,r(`userSettings`,{poorMode:e||void 0})}var c,l=e((()=>{n(),c=null}));export{s as i,o as n,a as r,l as t};
