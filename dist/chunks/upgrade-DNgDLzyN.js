@@ -1,0 +1,1 @@
+import{n as e,t}from"./upgrade-mOxmnc59.js";e();export{t as call};

@@ -1,1 +1,0 @@
-import{n as e,t}from"./Doctor-DxszxCE-.js";e();export{t as Doctor};

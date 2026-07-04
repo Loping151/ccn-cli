@@ -1,0 +1,1 @@
+import{i as e,s as t}from"./assistant-BA22Wh47.js";e();export{t as isAssistantMode};

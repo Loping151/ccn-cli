@@ -1,1 +1,0 @@
-import{Dr as e,Pr as t}from"./paths-C4T5ixO7.js";t();export{e as getMainLoopModel};

@@ -1,0 +1,1 @@
+import{li as e,ui as t}from"./paths-CEBN0NNM.js";t();export{e as getResolvedLanguage};

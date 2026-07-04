@@ -43,9 +43,12 @@
 | `CCN_UA_VERSION` | 覆盖 User-Agent 版本号 | 构建版本 |
 | `CCN_HANG_WATCHDOG` | `0` 关闭事件循环卡死看门狗 | 开 |
 | `CCN_ENABLE_WEIXIN` | `1` 注册内置微信插件 | 关 |
-| `CCN_ENABLE_BUILTIN_MCP` | `1` 列出内置 MCP(computer-use、chrome) | 关 |
+| `CCN_ENABLE_BUILTIN_MCP` | `1` 把内置 `mcp-chrome` 加进配置(在 `/mcp` 里显示为待启用)。默认关——否则 CCN 每次启动都会去握手 `127.0.0.1:12306`。 | 关 |
+| `CCN_ENABLE_COMPUTER_USE` | `1` 启用计算机控制(桌面鼠标/键盘/截屏)。**默认关**——它的工具会绕过权限提示,且内置订阅门是空实现,所以不显式开启就一直关。 | 关 |
 | `CCN_ENABLE_TRUST_DIALOG` | `1` 恢复文件夹信任弹窗 | 关(默认信任) |
+| `CCN_TRUST_PROJECT_COMMANDS` | `1` 允许项目 `.claude/settings.json` 里的 hook / apiKeyHelper / awsAuthRefresh / MCP headersHelper(会跑任意 shell 命令)执行。**默认关**——clone 来的仓库不会自动执行命令。仅对自己信任的目录开启。 | 关 |
 | `ENABLE_CLAUDEAI_MCP_SERVERS` | `1` 恢复 claude.ai 连接器 | 关 |
+| `CCN_ENABLE_OFFICIAL_CCR` | `1` 恢复**官方** claude.ai 远程控制桥接(会连 api.anthropic.com,需 claude.ai 订阅)。默认关——CCN 远程控制绝不连官方后端。自托管后端(`CLAUDE_BRIDGE_BASE_URL`)不受影响,无需此开关即可用。 | 关 |
 | `ENABLE_AUTOUPDATER` | `1` 恢复自动更新(建议用 `ccn update`) | 关 |
 | `DISABLE_AUTOUPDATER` | `1` 双保险关自动更新 | (包装脚本设 `1`) |
 | `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | `1` 完全关闭自动记忆 | 关 |

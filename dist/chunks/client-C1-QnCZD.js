@@ -1,0 +1,1 @@
+import{ba as e,ya as t}from"./paths-CEBN0NNM.js";e();export{t as getOrganizationUUID};

@@ -1,1 +1,0 @@
-import{oi as e,si as t}from"./paths-C4T5ixO7.js";t();export{e as getResolvedLanguage};

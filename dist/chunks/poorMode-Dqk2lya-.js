@@ -1,0 +1,1 @@
+import{n as e,t}from"./poorMode-BLk_Ma8C.js";t();export{e as isPoorModeActive};

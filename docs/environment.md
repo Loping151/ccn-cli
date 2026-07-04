@@ -43,9 +43,12 @@
 | `CCN_UA_VERSION` | Override the User-Agent version | build version |
 | `CCN_HANG_WATCHDOG` | `0` disables the event-loop hang watchdog | on |
 | `CCN_ENABLE_WEIXIN` | `1` registers the bundled WeChat plugin | off |
-| `CCN_ENABLE_BUILTIN_MCP` | `1` lists built-in MCP servers (computer-use, chrome) | off |
+| `CCN_ENABLE_BUILTIN_MCP` | `1` adds the built-in `mcp-chrome` server to the config (shown in `/mcp` as disabled-until-enabled). Off by default — otherwise CCN handshakes `127.0.0.1:12306` every startup. | off |
+| `CCN_ENABLE_COMPUTER_USE` | `1` enables Computer Use (desktop mouse/keyboard/screenshot control). **Off by default** — its tools bypass the normal permission prompt and the built-in subscription gate is a no-op, so it stays off unless you explicitly opt in. | off |
 | `CCN_ENABLE_TRUST_DIALOG` | `1` restores the folder-trust dialog | off (all folders trusted) |
+| `CCN_TRUST_PROJECT_COMMANDS` | `1` allows a project's `.claude/settings.json` hooks / apiKeyHelper / awsAuthRefresh / MCP headersHelper (arbitrary shell commands) to run. **Off by default** — a cloned repo cannot auto-execute commands. Turn on only for directories you own/trust. | off |
 | `ENABLE_CLAUDEAI_MCP_SERVERS` | `1` restores claude.ai connectors | off |
+| `CCN_ENABLE_OFFICIAL_CCR` | `1` re-enables the **official** claude.ai Remote Control bridge (phones home to api.anthropic.com, needs a claude.ai subscription). Off by default — CCN never contacts the official backend for remote control. A self-hosted backend via `CLAUDE_BRIDGE_BASE_URL` is unaffected and works without this. | off |
 | `ENABLE_AUTOUPDATER` | `1` re-enables the auto-updater (use `ccn update` instead) | off |
 | `DISABLE_AUTOUPDATER` | `1` belt-and-suspenders auto-update off | (wrappers set `1`) |
 | `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | `1` disables auto-memory entirely | off |
