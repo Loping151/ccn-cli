@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{t}from"./jsx-runtime-BLYyAvvR.js";import{n,t as r}from"./Doctor-BQlYRv7O.js";var i,a;e((()=>{n(),i=t(),a=(e,t,n)=>Promise.resolve((0,i.jsx)(r,{onDone:e}))}))();export{a as call};

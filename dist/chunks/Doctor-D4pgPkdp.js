@@ -1,1 +1,0 @@
-import{n as e,t}from"./Doctor-CYLc2xnn.js";e();export{t as Doctor};
