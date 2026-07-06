@@ -1,0 +1,1 @@
+import{n as e,t}from"./Doctor-Bu2v2_-k.js";e();export{t as Doctor};

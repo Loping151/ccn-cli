@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{fl as t,pl as n}from"./loadAgentsDir-DZiOqzZZ.js";function r(e){return e?e.activeAgents.filter(e=>e.source!==`built-in`).reduce((e,t)=>e+n(`${t.agentType}: ${t.whenToUse}`),0):0}var i,a=e((()=>{t(),i=15e3}));export{r as n,a as r,i as t};

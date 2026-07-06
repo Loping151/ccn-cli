@@ -1,0 +1,1 @@
+import{fa as e,pa as t}from"./paths-CiE9X_i0.js";t();export{e as getOrganizationUUID};

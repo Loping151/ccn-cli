@@ -1,1 +1,0 @@
-import{n as e,t}from"./pluginStartupCheck-BpzfvxUX.js";e();export{t as getPluginEditableScopes};

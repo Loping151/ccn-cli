@@ -1,1 +1,0 @@
-import{n as e,t}from"./poorMode-C2niUnZE.js";t();export{e as isPoorModeActive};
