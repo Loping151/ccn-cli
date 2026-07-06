@@ -1,1 +1,0 @@
-import{fa as e,pa as t}from"./paths-DykGtWP3.js";t();export{e as getOrganizationUUID};

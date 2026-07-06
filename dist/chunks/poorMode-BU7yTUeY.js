@@ -1,0 +1,1 @@
+import{n as e,t}from"./poorMode-CoiVpUdd.js";t();export{e as isPoorModeActive};

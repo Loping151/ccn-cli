@@ -1,0 +1,1 @@
+import{n as e,t}from"./upgrade-BAla_RU5.js";e();export{t as call};
