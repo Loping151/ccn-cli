@@ -1,1 +1,0 @@
-import{ii as e,ri as t}from"./paths-Dcol1D6w.js";e();export{t as getResolvedLanguage};

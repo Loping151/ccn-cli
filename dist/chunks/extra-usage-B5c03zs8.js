@@ -1,0 +1,1 @@
+import{n as e,t}from"./extra-usage-BWNhvOQH.js";e();export{t as call};
