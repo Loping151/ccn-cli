@@ -1,0 +1,1 @@
+import{n as e,t}from"./datadog-T4JGC11B.js";t();export{e as shutdownDatadog};

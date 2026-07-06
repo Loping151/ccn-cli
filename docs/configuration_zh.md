@@ -115,7 +115,7 @@ export ANTHROPIC_DEFAULT_SONNET_MODEL_DESCRIPTION="主力模型"
 | Verbose | 完整命令输出与展开工具结果 | 关 |
 | Welcome box | 启动带边框欢迎面板(`welcomeBox:false` 极简) | 开 |
 
-仅配置文件可改的相关键:`assistantName`(提示词中的助手身份名;默认=当前模型名剥 `[]` 后缀,如 `glm-5.2[1m]`→`glm-5.2`)、`customEndpoints`/`selectedEndpointId`(见上)、
+仅配置文件可改的相关键:`assistantName`(提示词中的助手身份名,即 "You are X" 那句;默认=当前模型名剥 `[]` 后缀,如 `glm-5.2[1m]`→`glm-5.2`)、`productName`(提示词与工具描述中的产品名——`/help` 说明、环境信息段、Config/Read 工具描述;默认 `CCN`,白标部署可改)、`customEndpoints`/`selectedEndpointId`(见上)、
 `customHeaders`(额外请求头对象,同名头替换)、`mascot`
 (`starflower`/`clawd`/`heart`/`sparkle`/`rocket`)、`diffColors`
 (`red-blue`/`red-green`)、`autoDreamEnabled`(后台记忆整理,默认关)。

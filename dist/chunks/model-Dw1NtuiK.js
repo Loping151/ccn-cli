@@ -1,0 +1,1 @@
+import{Sr as e,kr as t}from"./paths-DykGtWP3.js";t();export{e as getMainLoopModel};

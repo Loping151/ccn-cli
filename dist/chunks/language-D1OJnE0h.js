@@ -1,0 +1,1 @@
+import{ii as e,ri as t}from"./paths-DykGtWP3.js";e();export{t as getResolvedLanguage};

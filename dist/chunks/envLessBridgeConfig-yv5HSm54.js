@@ -1,1 +1,0 @@
-import{a as e,i as t}from"./envLessBridgeConfig-fWN7zF9b.js";t();export{e as shouldShowAppUpgradeMessage};

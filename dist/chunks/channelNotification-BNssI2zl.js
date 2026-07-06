@@ -1,1 +1,0 @@
-import{a as e,c as t}from"./channelNotification-D1MHHGyN.js";t();export{e as ChannelPermissionRequestNotificationSchema};

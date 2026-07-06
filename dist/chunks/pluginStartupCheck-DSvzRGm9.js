@@ -1,1 +1,0 @@
-import{n as e,t}from"./pluginStartupCheck-EEW7_KfF.js";e();export{t as getPluginEditableScopes};
