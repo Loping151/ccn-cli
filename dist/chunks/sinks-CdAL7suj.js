@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-CoiSo8Iq.js";export{e as initSinks};

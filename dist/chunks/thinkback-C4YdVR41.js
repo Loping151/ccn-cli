@@ -1,0 +1,1 @@
+import{n as e,r as t,t as n}from"./thinkback-DOE_-9J0.js";e();export{n as call,t as playAnimation};

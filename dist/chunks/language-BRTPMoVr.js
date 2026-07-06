@@ -1,0 +1,1 @@
+import{ii as e,ri as t}from"./paths-BCLOFUyJ.js";e();export{t as getResolvedLanguage};

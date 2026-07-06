@@ -1,1 +1,0 @@
-import{ii as e,ri as t}from"./paths-Cu-M66qQ.js";e();export{t as getResolvedLanguage};
