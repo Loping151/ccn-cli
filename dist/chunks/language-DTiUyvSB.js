@@ -1,1 +1,0 @@
-import{ii as e,ri as t}from"./paths-CiE9X_i0.js";e();export{t as getResolvedLanguage};

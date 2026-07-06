@@ -1,0 +1,1 @@
+import{n as e,t}from"./poorMode-wn_aaph6.js";t();export{e as isPoorModeActive};

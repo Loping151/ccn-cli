@@ -1,0 +1,1 @@
+import{n as e,t}from"./upgrade-BUaMUDDC.js";e();export{t as call};
