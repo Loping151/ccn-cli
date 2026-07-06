@@ -1,0 +1,1 @@
+import{n as e,t}from"./extra-usage-AUXlQudc.js";e();export{t as call};

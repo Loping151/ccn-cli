@@ -1,1 +1,0 @@
-import{n as e,t}from"./dist-es-B2jg52tM2.js";t();export{e as fromSSO};

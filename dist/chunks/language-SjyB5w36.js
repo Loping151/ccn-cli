@@ -1,0 +1,1 @@
+import{ii as e,ri as t}from"./paths-BnvoI0qT.js";e();export{t as getResolvedLanguage};

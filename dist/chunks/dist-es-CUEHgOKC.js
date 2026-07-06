@@ -1,0 +1,1 @@
+import{m as e,t,u as n}from"./dist-es-B_6vJa-C.js";import"./dist-es-B1veiZ5r.js";t();export{e as BedrockRuntimeClient,n as CountTokensCommand};

@@ -1,1 +1,0 @@
-import{n as e,t}from"./pluginStartupCheck-gnF4-gXD.js";e();export{t as getPluginEditableScopes};

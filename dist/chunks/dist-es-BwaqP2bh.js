@@ -1,0 +1,1 @@
+import{i as e,n as t,r as n,t as r}from"./dist-es-Bp3Sx3vW.js";r();export{t as credentialsTreatedAsExpired,n as credentialsWillNeedRefresh,e as defaultProvider};

@@ -1,2 +1,0 @@
-import{n as e}from"./chunk-DR8-3Aex.js";import{n as t,o as n}from"./esm-CJlBxjtx.js";import{n as r,t as i}from"./execAsync-BkA6ogic.js";async function a(){try{let e=(await i(`ioreg -rd1 -c "IOPlatformExpertDevice"`)).stdout.split(`
-`).find(e=>e.includes(`IOPlatformUUID`));if(!e)return;let t=e.split(`" = "`);if(t.length===2)return t[1].slice(0,-1)}catch(e){n.debug(`error reading machine id: ${e}`)}}e((()=>{r(),t()}))();export{a as getMachineId};

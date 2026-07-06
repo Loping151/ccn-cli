@@ -1,1 +1,0 @@
-import{li as e,ui as t}from"./paths-DJg_jbfO.js";t();export{e as getResolvedLanguage};

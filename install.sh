@@ -51,6 +51,23 @@ src="$tmp/ccn-cli-$BRANCH/dist"
 [ -f "$src/cli-node.js" ] || die "dist/cli-node.js not found in download"
 ver="$(tr -d '[:space:]' < "$tmp/ccn-cli-$BRANCH/VERSION" 2>/dev/null || true)"
 
+# ---- 防降级 ----------------------------------------------------------------
+# 已装版本 > 待装版本时，默认保持不动（CCN_FORCE=1 可强制）。
+# 场景：机队用 rollout 直接推了比公开仓更新的 dist，用户又跑 `ccn update`——
+# 若此时 update 取不到最新版本号(网络/代理)会盲目重装公开仓的旧 dist，造成降级。
+# 这里在真正翻转 current 前拦一道，任何入口(curl|bash 或 ccn update)都受保护。
+cur_ver=""
+if [ -f "$APP/current/package.json" ]; then
+  cur_ver="$("$NODE" -p "require('$APP/current/package.json').version" 2>/dev/null || true)"
+fi
+if [ -n "$cur_ver" ] && [ -n "$ver" ] && [ "$cur_ver" != "$ver" ] \
+   && [ "${CCN_FORCE:-}" != 1 ] \
+   && [ "$(printf '%s\n%s\n' "$cur_ver" "$ver" | sort -V | tail -1)" = "$cur_ver" ]; then
+  say "Installed version ($cur_ver) is newer than the download ($ver) — keeping current."
+  say "Run with CCN_FORCE=1 to reinstall the older version anyway."
+  exit 0
+fi
+
 # 版本目录布局：每次安装进独立的 versions/<ver>-<时间戳>/，再原子翻转 current 指针。
 # 运行中的旧会话钉在自己的版本目录里，懒加载的哈希 chunk 不受更新影响——
 # 整目录替换会让长会话在退出/懒加载时报模块丢失甚至卡死。
@@ -100,7 +117,7 @@ case ":$PATH:" in
 esac
 
 echo
-say "CCN installed  ->  $BIN/ccn"
+say "CCN ${ver:+v$ver }installed  ->  $BIN/ccn"
 cat <<EOF
 
 Get started:

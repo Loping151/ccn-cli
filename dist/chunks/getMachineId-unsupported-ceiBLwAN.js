@@ -1,1 +1,0 @@
-import{n as e}from"./chunk-DR8-3Aex.js";import{n as t,o as n}from"./esm-CJlBxjtx.js";async function r(){n.debug(`could not read machine-id: unsupported platform`)}e((()=>{t()}))();export{r as getMachineId};

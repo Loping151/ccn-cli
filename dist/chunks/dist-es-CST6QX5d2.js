@@ -1,0 +1,1 @@
+import{n as e,t}from"./dist-es-CuDGUQkw2.js";t();export{e as fromIni};

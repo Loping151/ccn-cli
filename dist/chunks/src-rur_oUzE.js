@@ -1,0 +1,1 @@
+import{r as e,t}from"./src-B3P-tnfq.js";t();export{e as createClaudeForChromeMcpServer};

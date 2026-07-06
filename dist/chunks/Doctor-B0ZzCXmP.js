@@ -1,0 +1,1 @@
+import{n as e,t}from"./Doctor-MdVa4cm3.js";e();export{t as Doctor};

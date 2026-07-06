@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";function t(e){let t;for(let n in e)n.startsWith(`_PROTO_`)&&(t===void 0&&(t={...e}),delete t[n]);return t??e}function n(e,t){}async function r(e,t){}var i=e((()=>{}));export{t as i,n,r,i as t};

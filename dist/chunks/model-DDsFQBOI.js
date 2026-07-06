@@ -1,1 +1,0 @@
-import{Ir as e,kr as t}from"./paths-DJg_jbfO.js";e();export{t as getMainLoopModel};
