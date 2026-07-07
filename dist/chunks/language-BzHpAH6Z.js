@@ -1,0 +1,1 @@
+import{ii as e,ri as t}from"./paths-CIl-ozdy.js";e();export{t as getResolvedLanguage};

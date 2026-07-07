@@ -1,1 +1,0 @@
-import{a as e,c as t,o as n,t as r}from"./localSearch-BDcww0SP.js";n();export{r as clearSkillIndexCache,e as getSkillIndex,t as searchSkills};

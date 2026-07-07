@@ -1,0 +1,1 @@
+import{Sr as e,kr as t}from"./paths-CIl-ozdy.js";t();export{e as getMainLoopModel};

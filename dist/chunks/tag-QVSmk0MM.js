@@ -1,0 +1,11 @@
+import{n as e,o as t}from"./chunk-DR8-3Aex.js";import{Qr as n,ei as r,ti as i}from"./paths-CIl-ozdy.js";import{In as a,Ln as o,Rn as s,b as c,f as l,t as u,x as d}from"./src-Kfqxxbsd.js";import{t as f}from"./jsx-runtime-BLYyAvvR.js";import{St as p,sn as m}from"./state-CH3cCJC5.js";import{t as h}from"./analytics-Oq2xIXA0.js";import{A as g,et as _,j as v}from"./log-XErWN8p7.js";import{DS as y,Di as b,ES as x,Lr as S,Mr as C,yr as w}from"./loadAgentsDir-atKeDaX0.js";import{r as T,t as E}from"./sanitization-BXXPOsUk.js";function D({tagName:e,onConfirm:t,onCancel:n}){return(0,M.jsx)(l,{title:r(`tag.removeTitle`,`Remove tag?`),subtitle:i(`tag.currentTag`,`Current tag: #{tag}`,{tag:e}),onCancel:n,color:`warning`,children:(0,M.jsxs)(d,{flexDirection:`column`,gap:1,children:[(0,M.jsx)(c,{children:r(`tag.removeBody`,`This will remove the tag from the current session.`)}),(0,M.jsx)(x,{onChange:e=>e===`yes`?t():n(),options:[{label:r(`tag.yesRemove`,`Yes, remove tag`),value:`yes`},{label:r(`tag.noKeep`,`No, keep tag`),value:`no`}]})]})})}function O({tagName:e,onDone:t}){let[n,o]=j.useState(!1),[s,c]=j.useState(null),l=T(e).trim();return j.useEffect(()=>{let e=p();if(!e){t(r(`tag.noSession`,`No active session to tag`),{display:`system`});return}if(!l){t(r(`tag.empty`,`Tag name cannot be empty`),{display:`system`});return}c(e),w(e)===l?o(!0):(async()=>{await b(e,l,C()),t(i(`tag.tagged`,`Tagged session with {tag}`,{tag:a.cyan(`#${l}`)}),{display:`system`})})()},[l,t]),n&&s?(0,M.jsx)(D,{tagName:l,onConfirm:async()=>{await b(s,``,C()),t(i(`tag.removed`,`Removed tag {tag}`,{tag:a.cyan(`#${l}`)}),{display:`system`})},onCancel:()=>{t(i(`tag.kept`,`Kept tag {tag}`,{tag:a.cyan(`#${l}`)}),{display:`system`})}}):null}function k({onDone:e}){return j.useEffect(()=>{e(`Usage: /tag <tag-name>
+
+Toggle a searchable tag on the current session.
+Run the same command again to remove the tag.
+Tags are displayed after the branch name in /resume and can be searched with /.
+
+Examples:
+  /tag bugfix        # Add tag
+  /tag bugfix        # Remove tag (toggle)
+  /tag feature-auth
+  /tag wip`,{display:`system`})},[e]),null}async function A(e,t,n){return n=n?.trim()||``,v.includes(n)||g.includes(n)||!n?(0,M.jsx)(k,{onDone:e}):(0,M.jsx)(O,{tagName:n,onDone:e})}var j,M;e((()=>{o(),j=t(s(),1),m(),y(),u(),_(),h(),E(),n(),S(),M=f()}))();export{A as call};

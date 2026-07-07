@@ -1,0 +1,1 @@
+import{fa as e,pa as t}from"./paths-CIl-ozdy.js";t();export{e as getOrganizationUUID};

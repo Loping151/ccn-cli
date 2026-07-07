@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-CbpGIoT3.js";export{e as initSinks};
