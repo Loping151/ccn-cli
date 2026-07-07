@@ -1,0 +1,1 @@
+import{or as e,pr as t}from"./paths-Dat5Aobk.js";t();export{e as getMainLoopModel};

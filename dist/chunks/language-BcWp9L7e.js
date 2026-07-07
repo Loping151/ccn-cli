@@ -1,0 +1,1 @@
+import{Hr as e,Vr as t}from"./paths-Dat5Aobk.js";e();export{t as getResolvedLanguage};

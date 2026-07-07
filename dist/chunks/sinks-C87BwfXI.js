@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-ClmgY2-3.js";export{e as initSinks};

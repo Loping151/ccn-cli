@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-DR8-3Aex.js";import{t}from"./jsx-runtime-BLYyAvvR.js";import{n,t as r}from"./Settings-DIL4SPeO.js";var i,a;e((()=>{n(),i=t(),a=async(e,t)=>(0,i.jsx)(r,{onClose:e,context:t,defaultTab:`Config`})}))();export{a as call};
