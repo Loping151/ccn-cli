@@ -1,1 +1,0 @@
-import{r as e,t}from"./sink-B0Pwebwc.js";t();export{e as initializeAnalyticsSink};

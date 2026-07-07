@@ -1,1 +1,0 @@
-import{n as e,t}from"./poorMode-BAjZ4O2F.js";t();export{e as isPoorModeActive};

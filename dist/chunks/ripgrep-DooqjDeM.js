@@ -1,0 +1,1 @@
+import{a as e,i as t}from"./ripgrep-BaxSKhwU.js";e();export{t as getRipgrepStatus};

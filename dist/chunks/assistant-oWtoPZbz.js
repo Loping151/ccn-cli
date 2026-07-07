@@ -1,0 +1,1 @@
+import{i as e,s as t}from"./assistant-Bb3Usg5Y.js";e();export{t as isAssistantMode};

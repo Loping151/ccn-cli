@@ -1,1 +1,0 @@
-import{i as e,o as t}from"./windowsPaths-B_8iHiJ8.js";e();export{t as setShellIfWindows};

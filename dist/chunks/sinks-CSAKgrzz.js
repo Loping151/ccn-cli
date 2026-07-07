@@ -1,0 +1,1 @@
+import{t as e}from"./sinks-BT_w8Ri8.js";export{e as initSinks};
