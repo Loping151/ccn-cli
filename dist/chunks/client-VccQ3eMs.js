@@ -1,1 +1,0 @@
-import{Xo as e,Zo as t}from"./paths-Dat5Aobk.js";t();export{e as getOrganizationUUID};

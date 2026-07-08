@@ -1,1 +1,0 @@
-import{i as e,s as t}from"./assistant-p4pxt9p8.js";e();export{t as isAssistantMode};
